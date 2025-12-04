@@ -29,6 +29,7 @@ A lightweight, automated toolkit for testing URLs for Clickjacking vulnerabiliti
 - `requests` library
 
 ## Installation
+
 - Clone this repository or download the scripts.
 
 - Install the required Python library:
@@ -52,26 +53,28 @@ python clickjack_tester.py -u https://google.com
 ```
 
 **B. Batch Mode (List of URLs)**
-By default, the script looks for a file named `target_urls.txt` in the same directory.
+
+- By default, the script looks for a file named `target_urls.txt` in the same directory.
 ```
 Bash
 python clickjack_tester.py
 ```
 
-Custom Input File: Specify your own list of URLs (one per line).
+- Custom Input File: Specify your own list of URLs (one per line).
 ```
 Bash
 python clickjack_tester.py -i my_clients.txt
 ```
 
 **C. Advanced Options**
-Save a Report (`-o`): Save a timestamped log of the scan results (SAFE/VULNERABLE/ERROR) to a text file. Works in both Single and Batch modes.
+
+- Save a Report (`-o`): Save a timestamped log of the scan results (SAFE/VULNERABLE/ERROR) to a text file. Works in both Single and Batch modes.
 ```
 Bash
 python clickjack_tester.py -u example.com -o check_result.txt
 ```
 
-Adjust Batch Size (`-b`): To prevent opening too many browser tabs at once, the script pauses every 5 URLs by default. You can change this limit.
+- Adjust Batch Size (`-b`): To prevent opening too many browser tabs at once, the script pauses every 5 URLs by default. You can change this limit.
 ```
 Bash
 # Pause after every 10 URLs
@@ -79,6 +82,7 @@ python clickjack_tester.py -i list.txt -b 10
 ```
 
 ### 2. The Cleanup Tool (`cleanup.py`)
+
 The scanner generates many `.html` files (e.g., `SAFE_google_com.html`, `VULN_example_com.html`). Use this script to delete them all instantly.
 ```
 Bash
@@ -86,6 +90,7 @@ python cleanup.py
 ```
 
 ## Input File Format
+
 Your input file (e.g., `target_urls.txt`) should contain one URL per line. The script will automatically add `http://` if it is missing.
 ```
 Plaintext
@@ -95,6 +100,7 @@ stackoverflow.com
 ```
 
 ## How It Works
+
 The script sends a generic `HTTP GET` request to the target URL and inspects the response headers:
 
 `X-Frame-Options`: Checks if set to `DENY` or `SAMEORIGIN`.
@@ -106,4 +112,5 @@ If either is present, the site is marked SAFE. If both are missing, it is marked
 Note: This tool uses a "Same-Origin Policy" workaround. Since a parent HTML file cannot check if an iframe loaded successfully, we perform the check in Python first, then generate the HTML file with the appropriate message ("Hooray" vs "Vulnerable").
 
 ## Disclaimer
+
 This tool is intended for security professionals and systems administrators to test systems they own or have explicit permission to test. Do not use this tool on unauthorized targets.
