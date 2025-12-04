@@ -81,7 +81,7 @@ Bash
 python clickjack_tester.py -i list.txt -b 10
 ```
 
-### 2. The Cleanup Tool (`cleanup.py`)
+### 2. The Cleanup Tool (`clickjack_tester_file_cleanup.py`)
 
 The scanner generates many `.html` files (e.g., `SAFE_google_com.html`, `VULN_example_com.html`). Use this script to delete them all instantly.
 ```
