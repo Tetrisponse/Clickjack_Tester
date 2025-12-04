@@ -39,7 +39,7 @@ pip install requests
 
 ## Usage
 
-### 1. The Scanner (`clickjack_tester.py`)**
+### 1. The Scanner (`clickjack_tester.py`)
 The scanner logic is simple: If you provide a single URL (`-u`), it checks that. If you don't, it looks for a list of URLs (`-i`).
 
 **A. Single URL Mode (Spot Check)**
