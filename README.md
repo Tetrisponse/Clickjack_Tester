@@ -114,3 +114,7 @@ Note: This tool uses a "Same-Origin Policy" workaround. Since a parent HTML file
 ## Disclaimer
 
 This tool is intended for security professionals and systems administrators to test systems they own or have explicit permission to test. Do not use this tool on unauthorized targets.
+
+## Contributors
+
+- [MagVeTs](https://github.com/MagVeTs)
